@@ -210,7 +210,7 @@ builder = (function () {
 				var childatts = helper.getAttributes(node.attributes);
 				childatts.aux_1 = node.textContent.trim();		// Almaceno la propiedad con la que se poblará la tabla
 
-				data = createText(childatts.header.trim(), childatts);
+				data = createText(childatts.header.trim(), parentatts);
 				data.colSpan = childatts.colspan;		// Agrego propiedad 'colspan'
 
 				row.push(data);
