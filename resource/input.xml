@@ -1,0 +1,74 @@
+<XMLToPDF number-columns="10">
+	<group type="image" row="0" column="0" column-span="1">
+		<source>{{logo}}</source>
+	</group>
+
+	<group type="text" row="0" column="1" column-span="6" border="0"  
+		font-family="Helvetica" font-color="#000000" font-style="2" font-size="13" alignment="0" background-color="#FFFFFF">
+		<text>{{denominacion}}</text>
+		<text>{{direccion_fiscal}}</text>
+	</group>
+	
+	<group type="text" row="0" column="7" column-span="3" 
+		   border="15" alignment="1" background-color="#EEEEEE"
+		   font-family="Helvetica" font-color="#FF0000" font-style="1" font-size="12">
+		<text>FACTURA ELECTRONICA</text>
+		<text>{{ruc}}</text>
+		<text>{{serie}} - {{correlativo}}</text>
+	</group>
+
+	<group type="table" row="4" column="0" column-span="5" border="0" number-columns="5">
+		<cell column-span="2" border="0" font-family="Times-Roman" font-color="#000000" font-style="1" font-size="11" alignment="0" background-color="#EEEEEE">
+			Fecha de Emisión:
+		</cell>
+		<cell column-span="3" border="0" font-family="Courier" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+			{{fecha_emision}}
+		</cell>
+
+		<cell column-span="2" border="0" font-family="Times-Roman" font-color="#000000" font-style="1" font-size="11" alignment="0" background-color="#EEEEEE">
+			Moneda:
+		</cell>
+		<cell column-span="3" border="0" font-family="Courier" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+			{{moneda}}
+		</cell>
+		
+		<cell column-span="2" border="0" font-family="Times-Roman" font-color="#000000" font-style="1" font-size="11" alignment="0" background-color="#EEEEEE">
+			Observaciones:
+		</cell>
+		<cell column-span="3" border="0" font-family="Courier" font-color="#000000" font-style="0" font-size="10" alignment="0" background-color="#FFFFFF">
+			{{observacion}}
+		</cell>
+	</group>
+
+	<group type="datatable" row="6" column="0" column-span="10" number-columns="10" data="detalle" font-family="Times-Roman" font-color="#000000" font-size="11" alignment="0">
+		<column header="Cantidad" column-span="1">{{cantidad}}</column>
+		<column header="Unidad Medida" column-span="2">{{unidad_medida}}</column>
+		<column header="Codigo" column-span="1">{{codigo}}</column>
+		<column header="Descripcion" column-span="4">{{descripcion}}</column>
+		<column header="Precio Unitario" name="precios_total" column-span="1">{{precio_unitario}}</column>
+		<column header="Importe" name="importe_total" column-span="1">{{cantidad}} * {{precio_unitario}}</column>
+	</group>
+
+	<group type="qrcode" row="8" column="0" column-span="5">
+		<text>{{ruc}}|{{tipo_comprobante}}|{{serie}}|{{correlativo}}|{{monto_igv}}|{{importe_total}}|{{fecha_emision}}|{{tipo_doc_adquiriente}}|{{num_doc_adquiriente}}</text>
+	</group>
+
+	<group type="table" row="8" column="7" column-span="3" border="0" number-columns="3">
+		<cell column-span="2" border="0" font-family="Times-Roman" font-color="#000000" font-style="1" font-size="11" alignment="2" background-color="#FFFFFF">
+			Importe Total:
+		</cell>
+		<cell column-span="1" border="2" font-family="Courier" font-color="#000000" font-style="1" font-size="11" alignment="1" background-color="#FFFFFF">
+			{{importe_total}}
+		</cell>
+		<cell column-span="2" border="0" font-family="Times-Roman" font-color="#000000" font-style="1" font-size="11" alignment="2" background-color="#FFFFFF">
+			IGV:
+		</cell>
+		<cell column-span="1" border="2" font-family="Courier" font-color="#000000" font-style="1" font-size="11" alignment="1" background-color="#FFFFFF">
+			{{importe_total}} * 0.18
+		</cell>
+	</group>
+
+</XMLToPDF>
+
+
+
